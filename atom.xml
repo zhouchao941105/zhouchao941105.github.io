@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>zhouchao</title>
+  
+  <subtitle>zc</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://zhouchao941105.github.io/"/>
+  <updated>2018-02-16T13:01:59.419Z</updated>
+  <id>https://zhouchao941105.github.io/</id>
+  
+  <author>
+    <name>zhouchao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>daily</title>
+    <link href="https://zhouchao941105.github.io/2018/02/16/daily-1/"/>
+    <id>https://zhouchao941105.github.io/2018/02/16/daily-1/</id>
+    <published>2018-02-16T13:01:59.000Z</published>
+    <updated>2018-02-16T13:01:59.419Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://zhouchao941105.github.io/2018/02/07/hello-world/"/>
+    <id>https://zhouchao941105.github.io/2018/02/07/hello-world/</id>
+    <published>2018-02-07T12:24:39.674Z</published>
+    <updated>2018-02-07T12:24:39.675Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>daily</title>
+    <link href="https://zhouchao941105.github.io/2017/10/24/daily/"/>
+    <id>https://zhouchao941105.github.io/2017/10/24/daily/</id>
+    <published>2017-10-24T07:08:59.000Z</published>
+    <updated>2018-02-10T14:23:06.882Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="2017年10月24日15-11-47"><a href="#2017年10月24日15-11-47" class="headerlink" title="2017年10月24日15:11:47"></a>2017年10月24日15:11:47</h2><ul><li>在AngularJs中手动触发双向绑定用$digest()或者$apply()的区别</li><li>1.2.2中，由于模块分工的问题，统一将保存的校验与接口调用放在组件当中处理。需求要求保存成功后有成功提示（加了$timeout的一个toast），此为背景。由于前后端通信用的是fetch，不属于angular环境，所以在回调函数中需要手动触发双向绑定来使得弹窗正常触发。这里就有两种选择：$digest()和$apply()。</li></ul><ol><li>用$digest():</li></ol><ul><li>通过回调函数修改上级组件（app）中的变量，$digest()触发当前域的脏值检测，弹窗能够正常显示。上层的脏值检测需要弹窗结束后借助$timeout内置的$apply()才能触发，所以出现了弹窗结束后才回到列表页的情况，代码上看似是异步的操作，实际上由于angular的脏值检测机制在效果上却更像是‘同步’的。</li></ul><ol><li>用$apply():</li></ol><ul><li>那么用$apply()直接把当前域上层组件都触发一次脏值检测是不是就可以解决问题呢？答案是否定的，至少在这种模块分配模式下是不行的。由于toast的组件在当前业务组件中申明，回调函数修改上级组件中的变量然后触发脏值检测，会导致当前业务组件的作用域直接失去（因为用了ng-if），toast也会跟着消失，导致的后果就是toast就算会出现，最多也是一瞬间的事情。</li></ul><ol><li>解决方案<ul><li>将计就计，为$timeout指定一个时间，过了这个时间后触发双向绑定，隐藏toast，会到列表（目前就采用了这种方式） </li><li>修改模块结构，可以将校验等工作继续留在组件层面，toast也在app放一遍，将调接口通过callback放到APP层中去统一处理，这样可以做到双向绑定的出发并不会影响到toast的功能</li><li>这次发现了$digest()所存在的缺陷，但是仍然没有足够的理由证明$digest()和$apply()哪个更好</li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;2017年10月24日15-11-47&quot;&gt;&lt;a href=&quot;#2017年10月24日15-11-47&quot; class=&quot;headerlink&quot; title=&quot;2017年10月24日15:11:47&quot;&gt;&lt;/a&gt;2017年10月24日15:11:47&lt;/h2&gt;&lt;ul&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Array-unique</title>
+    <link href="https://zhouchao941105.github.io/2017/09/29/Array-unique/"/>
+    <id>https://zhouchao941105.github.io/2017/09/29/Array-unique/</id>
+    <published>2017-09-29T09:09:02.000Z</published>
+    <updated>2018-02-10T14:23:06.881Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> testArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="string">'1'</span>, <span class="number">2</span>, <span class="number">3</span>, &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;, &#123; <span class="attr">b</span>: <span class="number">1</span> &#125;, &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;, <span class="literal">null</span>, <span class="literal">undefined</span>, <span class="literal">null</span>, <span class="literal">undefined</span>, <span class="number">4</span>, <span class="number">4</span>];</span><br><span class="line"><span class="comment">//es7</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique1</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temparr = [];</span><br><span class="line">    arr.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (!temparr.includes(item)) &#123;</span><br><span class="line">            temparr.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(temparr);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//es7</span></span><br><span class="line"><span class="comment">//与前一种方法相比，不用多声明一个变量，利用了includes第二个参数的特性</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique4</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr.filter(<span class="function">(<span class="params">item, idx</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> !arr.includes(item, idx + <span class="number">1</span>)</span><br><span class="line">    &#125;))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//es6</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique2</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(...new <span class="built_in">Set</span>(arr));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//es5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique3</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> t = [];</span><br><span class="line">    arr.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        t.indexOf(item) === <span class="number">-1</span> &amp;&amp; t.push(item)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="built_in">console</span>.log(t);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//es5</span></span><br><span class="line"><span class="comment">//与前一种方法相比，不用多声明一个变量，利用了indexOf第二个参数的特性</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique5</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( arr.filter(<span class="function">(<span class="params">item, idx</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> arr.indexOf(item, idx + <span class="number">1</span>) == <span class="number">-1</span></span><br><span class="line">    &#125;))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//用includes和indexOf第二个参数进行实现的方法。结果没问题，最后得出的数组顺序与其他方法有所出入，因为出现重复项的情况下取的是最靠后那项。</span></span><br><span class="line"><span class="comment">//尝试过用lastIndexOf来取代indexOf来避免掉这一影响，但是没能成功。如果用了lastIndexOf，第二个参数就要设置成idx-1,表示这一项的左侧不再有重复的项了。这种情况下，数组的第一项执行时，第二个参数就是-1，而负数在lastIndexOf中会被处理成数组的长度加上这个负数再进行搜索，所以第一项一定会被找到，也就是说，如果第一项在数组中明明是唯一的，但不会被返回，所以lastIndexOf不可行。到这之后，我又去看了一下indexOf对于第二个参数的理解，当第二个参数等于或者大于数组的长度时，不会进行搜索而直接返回-1，这正是我们这个场景中所需要的。可以说是阴差阳错正好选对了方法</span></span><br><span class="line"><span class="comment">//下面这种方法解决了上面出现的问题     2017年9月30日15:05:49</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique6</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr.filter(<span class="function">(<span class="params">item,idx</span>)=&gt;</span>arr.indexOf(item)==idx))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;数组去重&quot;&gt;&lt;a href=&quot;#数组去重&quot; class=&quot;headerlink&quot; title=&quot;数组去重&quot;&gt;&lt;/a&gt;数组去重&lt;/h2&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Array.prototype</title>
+    <link href="https://zhouchao941105.github.io/2017/08/25/Array-prototype/"/>
+    <id>https://zhouchao941105.github.io/2017/08/25/Array-prototype/</id>
+    <published>2017-08-25T07:44:02.000Z</published>
+    <updated>2018-02-10T14:23:06.879Z</updated>
+    
+    <content type="html"><![CDATA[<!-- <font size="5"> --><h2 id="常用的数组原型方法比较"><a href="#常用的数组原型方法比较" class="headerlink" title="常用的数组原型方法比较"></a>常用的数组原型方法比较</h2><ol><li><p>includes</p><blockquote><p>arr.includes(searchElement)</p><p>arr.includes(searchElement, fromIndex)</p></blockquote><p> <strong>返回的是布尔量</strong></p></li><li><p>indexOf</p><blockquote><p>arr.indexOf(searchElement)</p><p>arr.indexOf(searchElement[, fromIndex = 0])</p></blockquote><p> <strong>返回的是索引</strong></p></li><li><p>findIndex</p><blockquote><p>arr.findIndex(callback[, thisArg])</p></blockquote><p> <strong>返回的是索引</strong></p></li><li><p>find</p><blockquote><p>arr.find(callback[, thisArg])</p></blockquote><p> <strong>返回的是值</strong></p></li></ol><ol><li><p>some</p><blockquote><p>arr.some(callback[, thisArg])</p></blockquote><p> <strong>返回的是布尔量</strong></p></li><li><p>every</p><blockquote><p>arr.every(callback[, thisArg])</p></blockquote><p> <strong>返回的是布尔量</strong></p></li></ol><hr><h1 id="总结一下"><a href="#总结一下" class="headerlink" title="总结一下"></a>总结一下</h1><p><strong>indexOf 和 includes的区别在于：indexOf可以指定开始查找的位置，而includes直接返回的是布尔值；常规的场景中，查找数组中是否存在某个值，还是用includes简单一些，不用再去做==-1的判断。同样的需求，如果是对象数组，这两种方法都无能为力，相比较而言，还是some比较合适；另外，似乎数组原型上没有那个方法是支持从指定位置开始调用条件函数。</strong><br>-</p><p>edited on 2017年8月25日16:06:20</p><!-- </font> -->]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;!-- &lt;font size=&quot;5&quot;&gt; --&gt;
+&lt;h2 id=&quot;常用的数组原型方法比较&quot;&gt;&lt;a href=&quot;#常用的数组原型方法比较&quot; class=&quot;headerlink&quot; title=&quot;常用的数组原型方法比较&quot;&gt;&lt;/a&gt;常用的数组原型方法比较&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Promise</title>
+    <link href="https://zhouchao941105.github.io/2017/08/23/Promise/"/>
+    <id>https://zhouchao941105.github.io/2017/08/23/Promise/</id>
+    <published>2017-08-23T06:45:36.000Z</published>
+    <updated>2018-02-10T14:23:06.894Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Promise-随笔"><a href="#Promise-随笔" class="headerlink" title="Promise 随笔"></a>Promise 随笔</h2><h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同步方法中抛出的异常可以被捕获</span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">'Exception!'</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">p1.catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e)  <span class="comment">//'Exception'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// Errors thrown inside asynchronous functions will act like uncaught errors</span></span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">'Uncaught Exception!'</span>;</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">p2.catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e); <span class="comment">// This is never called</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p3 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res,rej</span>) =&gt;</span> &#123;</span><br><span class="line">    rej(<span class="string">'err'</span>);</span><br><span class="line">&#125;)</span><br><span class="line">p3.catch(<span class="function"><span class="params">e</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e); <span class="comment">// err</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h4 id="结论："><a href="#结论：" class="headerlink" title="结论："></a>结论：</h4><pre><code>1. catch只会捕获状态为rejected的Promise对象 </code></pre><blockquote><p>The catch() method returns a Promise and deals with rejected cases only.</p></blockquote><pre><code>2. 在同步方法中，异常会被处理成一个rejected状态的Promise对象，异步中则不适用3. 用Promise.reject抛出的异常能被正常捕获</code></pre><h3 id="异常被捕获后，返回的是一个fulfilled状态的Promise对象"><a href="#异常被捕获后，返回的是一个fulfilled状态的Promise对象" class="headerlink" title="异常被捕获后，返回的是一个fulfilled状态的Promise对象"></a>异常被捕获后，返回的是一个fulfilled状态的Promise对象</h3><blockquote><p>2017年10月24日15:04:13更新</p><ul><li>在开发中，试图用Promise.all()来集中调用接口，以实现接口调用完成之后再显示页面的功能。在使用过程中发现，promise这个数组中的每一项如果本身不是promise对象或不返回promise，会被先用Promise.resolve()处理一遍，而且这个过程是同步的。</li></ul></blockquote><ul><li>在实际使用中发现，promise数组中的每个promise之间不能存在任何依赖,而且又是同步执行的，所以似乎不是很适合用来实现这一功能 </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Promise-随笔&quot;&gt;&lt;a href=&quot;#Promise-随笔&quot; class=&quot;headerlink&quot; title=&quot;Promise 随笔&quot;&gt;&lt;/a&gt;Promise 随笔&lt;/h2&gt;&lt;h3 id=&quot;异常处理&quot;&gt;&lt;a href=&quot;#异常处理&quot; class=&quot;head
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

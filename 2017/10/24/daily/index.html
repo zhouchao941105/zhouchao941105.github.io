@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="Zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> daily · zhouchao</title><meta name="description" content="daily - zhouchao"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://zhouchao941105.github.io/atom.xml" title="zhouchao"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">daily</h1><div class="post-info">2017年10月24日</div><div class="post-content"><h2 id="2017年10月24日15-11-47"><a href="#2017年10月24日15-11-47" class="headerlink" title="2017年10月24日15:11:47"></a>2017年10月24日15:11:47</h2><ul>
+<li>在AngularJs中手动触发双向绑定用$digest()或者$apply()的区别</li>
+<li>1.2.2中，由于模块分工的问题，统一将保存的校验与接口调用放在组件当中处理。需求要求保存成功后有成功提示（加了$timeout的一个toast），此为背景。由于前后端通信用的是fetch，不属于angular环境，所以在回调函数中需要手动触发双向绑定来使得弹窗正常触发。这里就有两种选择：$digest()和$apply()。</li>
+</ul>
+<ol>
+<li>用$digest():</li>
+</ol>
+<ul>
+<li>通过回调函数修改上级组件（app）中的变量，$digest()触发当前域的脏值检测，弹窗能够正常显示。上层的脏值检测需要弹窗结束后借助$timeout内置的$apply()才能触发，所以出现了弹窗结束后才回到列表页的情况，代码上看似是异步的操作，实际上由于angular的脏值检测机制在效果上却更像是‘同步’的。</li>
+</ul>
+<ol>
+<li>用$apply():</li>
+</ol>
+<ul>
+<li>那么用$apply()直接把当前域上层组件都触发一次脏值检测是不是就可以解决问题呢？答案是否定的，至少在这种模块分配模式下是不行的。由于toast的组件在当前业务组件中申明，回调函数修改上级组件中的变量然后触发脏值检测，会导致当前业务组件的作用域直接失去（因为用了ng-if），toast也会跟着消失，导致的后果就是toast就算会出现，最多也是一瞬间的事情。</li>
+</ul>
+<ol>
+<li>解决方案<ul>
+<li>将计就计，为$timeout指定一个时间，过了这个时间后触发双向绑定，隐藏toast，会到列表（目前就采用了这种方式） </li>
+<li>修改模块结构，可以将校验等工作继续留在组件层面，toast也在app放一遍，将调接口通过callback放到APP层中去统一处理，这样可以做到双向绑定的出发并不会影响到toast的功能</li>
+<li>这次发现了$digest()所存在的缺陷，但是仍然没有足够的理由证明$digest()和$apply()哪个更好</li>
+</ul>
+</li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/2018/02/07/hello-world/" class="prev">PREV</a><a href="/2017/09/29/Array-unique/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://zhouchao941105.github.io">zhouchao</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
